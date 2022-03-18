@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LibroController::class, 'index']);
+
+
+Route::get('/crear', [LibroController::class, 'create']);
+Route::post('/store', [LibroController::class, 'store']);
+Route::get('/borrar/{id}', [LibroController::class, 'destroy']);
